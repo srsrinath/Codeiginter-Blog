@@ -1,0 +1,173 @@
+
+.accordion .card {
+	color: black;
+
+}
+.accordion .card a {
+	color: #424e5d;
+	text-decoration: none;				
+}
+.accordion .card-header {
+	background: linear-gradient(#fff, #f1f1f1);
+	padding: .75rem 1rem;
+	position: relative;
+}
+.accordion .card-header:hover {
+	background: linear-gradient(#f1f1f1, #e8e8e8);
+}
+.accordion .card-header h2 {
+	font-size: 1rem;
+}
+.accordion .fa {
+	width: 20px;
+	margin-right: .25rem;
+}
+.accordion .card-header a {
+	float: left;
+	width: 100%;
+	cursor: pointer;
+}
+.accordion .toggle {
+	font-size: 25px;
+	line-height: .8rem;
+	cursor: pointer;
+	position: relative;
+	right: 2px;
+	top: 1px;
+	width: 12px;
+	margin-left: 100px;
+}
+.accordion .toggle:hover {
+	opacity: 1;
+}
+.accordion .card-body {
+	padding: 0;
+}
+.accordion .list-group-item {				
+	border-radius: 0;
+	border-width: 1px 0 1px 0;
+	padding-left: 30px;
+	background: #d6dbe0;
+	font-weight: 500;
+}
+.accordion .list-group-item:hover {
+	background: #007bff;
+}
+.accordion .list-group-item:hover a {
+	color: #fff !important;
+}
+.accordion .list-group-item:hover .badge{
+	background: #fff;
+	color: #007bff;
+}
+.accordion .list-group-item a {
+	color: #61656b;
+	display: block;
+}
+.accordion .list-group-item .badge {
+	float: right;
+	min-width: 36px;
+}
+.accordion .rotate{
+	transform: rotate(180deg); 
+}
+.container{
+            margin: 0;
+            padding:0;
+        }
+        .la{
+            margin: 0 auto;
+            max-width: 1300px;
+            min-width: 1170px;
+            overflow: hidden;
+
+        }
+        .la1{
+            margin: 0 auto;
+            position: relative;
+            padding: 2px;
+        }
+        .rs{
+            width: 100%;
+            display: flex;
+        }
+        .la2{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            width: 25%;
+        }
+        div {
+            display: block;
+        }
+        .la3{
+            background-color:white;
+            border-radius: 2px;
+            box-shadow: 0 2px 4px 0 rgba(0,0,0,8%);
+
+        }
+        .la4{
+            padding: 19px;
+            margin-bottom:10px;
+        }
+        .la5{
+            padding: 10px;
+         
+        }
+        .la6{
+            border-bottom: 2px solid lightgray;
+        }
+        .l1{
+            margin-left: 20px;
+        }
+
+.change{
+    padding:30px;
+    overflow: hidden;
+}
+.laypost{
+    padding: 16px;
+    width: 100%;
+    font-size: 14px;
+    overflow: hidden;
+    transition: box-shadow .1s linear;
+    background-color: #fff;
+    border: 1px solid #dbdbdb;
+    position: relative;
+    cursor: pointer;
+    display: block;
+    box-shadow: 0 0 0 0 rgb(0 0 0 / 15%);
+    margin-bottom: 8px;
+    border-radius: 4px;
+}
+
+.card{
+    margin-bottom: 10px;
+}
+
+.la33{
+    margin-left: 20px;
+}
+.la44{
+    margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
