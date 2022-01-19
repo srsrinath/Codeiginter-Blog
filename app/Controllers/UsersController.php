@@ -105,6 +105,7 @@ class UsersController extends BaseController
                 //$model->find($id);
                 $name = $this->request->getPost('name');
                 $email = $this->request->getPost('email');
+                
                 //$password = $this->request->getPost('password');
                 $values = [
                     'name' => $name,
