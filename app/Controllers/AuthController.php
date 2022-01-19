@@ -24,7 +24,8 @@ class AuthController extends BaseController
         ]);
         if ($this->request->getMethod() == 'post') {
             if (!$validation) {
-                return view('auth/register', ['validation' => $this->validator]);
+                //return view('auth/register', ['validation' => $this->validator]);
+                return redirect()->back()->withInput('validation',$this->validator->getErrors());
             } else {
                 $name = $this->request->getPost('name');
                 $email = $this->request->getPost('email');
