@@ -57,14 +57,20 @@
                                         <?php endif; ?>
                 <div class="row" style="margin-top:30px;">
                         <div class="col-md-4 col-md offset-2">
-                        <form action="<?=base_url('/savedetails');?>" method="post">    
+                        <form action="<?=base_url('/savedetails/'.$users['u_id']);?>" method="post">    
                         <div class="form-group mb-3">
                                 <label for="Name" class="form-label">Name:</label>
                                 <input type="text" name="name" value="<?= $users['name'] ?>" class="form-control" placeholder="Enter Your Name">
+                                <span class="text-danger">
+                        <?= isset($validation) ? display_error($validation,'name'): '' ?>
+                        </span>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="email" class="form-label">Email:</label>
                                 <input type="text" name="email" value="<?= $users['email'] ?>" class="form-control" placeholder="Enter Your email">
+                                <span class="text-danger">
+                        <?= isset($validation) ? display_error($validation,'email'): '' ?>
+                        </span>
                             </div>
                             <div class="form-group mb-3">
                                 <button  type="submit" class="btn btn-primary">Save</button>

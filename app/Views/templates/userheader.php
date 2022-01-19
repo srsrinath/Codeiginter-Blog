@@ -23,7 +23,6 @@
                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" 
                          aria-expanded="false"><?= session()->get('name') ?></a>
                          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                             <li><a class="dropdown-item" href="<?= base_url('/dashboard') ?>">Dashboard</a></li>
                              <li><a class="dropdown-item" href="<?= base_url('/profile') ?>">Profile</a></li>
                              <li><a class="dropdown-item" href="<?= base_url('/changepassword') ?>">Change Password</a></li>
                              <li><a class="dropdown-item" href="<?= base_url('/logout') ?>">Logout</a></li>

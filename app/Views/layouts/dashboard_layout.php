@@ -11,8 +11,8 @@
   <script src="<?=base_url('assets1/js/jquery-3.6.0.js')?>"></script>
   <link rel="shortcut icon" href="<?=base_url('assets1/images/favicon.ico')?>">
   <link rel="stylesheet" href="<?=base_url('plugins/morris/morris.css')?>">
-  <link href="assets1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-  <link href="assets1/css/metismenu.min.css" rel="stylesheet" type="text/css">
+  <link href="<?=base_url('assets1/css/bootstrap.min.css')?>" rel="stylesheet" type="text/css">
+  <link href="<?=base_url('assets1/css/metismenu.min.css')?>" rel="stylesheet" type="text/css">
   <link href="<?=base_url('assets1/css/icons.css')?>" rel="stylesheet" type="text/css">
   <link href="<?=base_url('assets1/css/style.css')?>" rel="stylesheet" type="text/css">
   <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
@@ -24,20 +24,20 @@
 
 <body>
 
-  <?= $this->include('templates/dashboardheader') ?>
+  <?= $this->include('templates/dashboardheader')?>
   <?= $this->rendersection('content'); ?>
   <?= $this->include('templates/dashboardfooter') ?>
 
 
 
   <!-- jQuery  -->
-  <script src="assets1/js/jquery.min.js"></script>
-  <script src="assets1/js/bootstrap.bundle.min.js"></script>
-  <script src="assets1/js/metisMenu.min.js"></script>
-  <script src="assets1/js/jquery.slimscroll.js"></script>
-  <script src="assets1/js/waves.min.js"></script>
+  <script src="<?=base_url('assets1/js/jquery.min.js')?>"></script>
+  <script src="<?=base_url('assets1/js/bootstrap.bundle.min.js')?>"></script>
+  <script src="<?=base_url('assets1/js/metisMenu.min.js')?>"></script>
+  <script src="<?=base_url('assets1/js/jquery.slimscroll.js')?>"></script>
+  <script src="<?=base_url('assets1/js/waves.min.js')?>"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.2/axios.min.js" integrity="sha512-SRGf0XYPMWMGCYQg7sQsW2/FMWq0L/mYhwxDraoUOeZ9sWO2/+R48bcXZaWOpwjCQbyRWP24zsbtqQxJXU1W2w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
+  <script src="<?=base_url('plugins/jquery-sparkline/jquery.sparkline.min.js')?>"></script>
   <script type="text/javascript" src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
   <!--Morris Chart-->
 

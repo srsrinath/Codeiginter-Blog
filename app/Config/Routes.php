@@ -37,7 +37,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('about','Home::about');
 $routes->get('profile', 'Home::profile');
-$routes->post('savedetails', 'Home::savedetails');
+$routes->post('savedetails/(:num)', 'Home::savedetails/$1');
 $routes->get('viewpost', 'Home::viewpost');
 $routes->get('changepassword', 'Home::changepassword');
 $routes->post('updatepassword', 'Home::updatepassword');
@@ -63,6 +63,12 @@ $routes->get('logout', 'AuthController::logout');
 
 //Dashboard controller routes
 $routes->get('dashboard', 'DashboardController::index',['filter'=>'Admin']);
+$routes->get('dashboard/profile', 'DashboardController::profile');
+$routes->post('/store/(:num)', 'DashboardController::store/$1');
+$routes->get('dashboard/changepassword', 'DashboardController::changepassword');
+$routes->post('update', 'DashboardController::update');
+
+
 
 
 

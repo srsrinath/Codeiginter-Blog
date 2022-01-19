@@ -2,7 +2,10 @@
     <!-- Top Bar Start -->
     <div class="topbar">
         <!-- LOGO -->
-        <div class="topbar-left"><a href="index.html" class="logo"><span><img src="<?=base_url('assets1/images/logo-light.png')?>" alt="" height="18"> </span><i><img src="assets1/images/logo-sm.png" alt="" height="22"></i></a></div>
+        <div class="topbar-left"><a href="index.html" class="logo">
+            <span style="color: white; font-size:20px;">Admin 
+        </span><i></i></a></div>
+    
         <nav class="navbar-custom">
             <ul class="navbar-right d-flex list-inline float-right mb-0">
                 <li class="dropdown notification-list d-none d-sm-block">
@@ -15,11 +18,15 @@
 
                 <li class="dropdown notification-list">
                     <div class="dropdown notification-list">
-                        <a class="nav-link dropdown-toggle waves-effect" id="navbarDropdown" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle waves-effect" id="navbarDropdown"
+                         data-toggle="dropdown" href="#" role="button" aria-expanded="false">
                             <?= session()->get('type') ?></a>
                         <div class="dropdown-menu dropdown-menu-right profile-dropdown">
-                            <!-- item--> <a class="dropdown-item" href="#"><i class="mdi mdi-account-circle m-r-5"></i> Profile</a>
-                            <div class="dropdown-divider"></div><a class="dropdown-item text-danger" href="<?= base_url('/logout') ?>"><i class="mdi mdi-power text-danger"></i> Logout</a>
+                            <a class="dropdown-item" href="<?=base_url('/dashboard/profile')?>"><i class="mdi mdi-account-circle m-r-5"></i> Profile</a>
+                            <a class="dropdown-item" href="<?=base_url('/dashboard/changepassword')?>"><i class="mdi mdi-account-circle m-r-5"></i>ChangePassword</a>
+
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item text-danger" href="<?= base_url('/logout') ?>"><i class="mdi mdi-power text-danger"></i> Logout</a>
                         </div>
                     </div>
                 </li>

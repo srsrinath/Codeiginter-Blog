@@ -38,24 +38,37 @@ class Home extends BaseController
         return view('profile/profile', $data);
     }
 
-    public function savedetails()
+    public function savedetails($id)
     {
         //echo "success";
         $id = session()->get('loggedUser');
         $model = new UserModel();
-        $user = $model->find($id);
+        $data['users'] = $model->find($id);
         //dd($user);
-        $name = $this->request->getPost('name');
-        $email = $this->request->getPost('email');
-        $values = [
-            'name' => $name,
-            'email' => $email,
+        $rules = [
+            'name' => 'required',
+            'email' => 'required',
         ];
-        //dd($values);
-        //dd($user,$);
-        //$model=new UserModel();
-        $model->update($user, $values);
-        return redirect()->back()->with('success', 'Profile data updated successfully');
+        $validation = $this->validate($rules);
+        if (!$validation) {
+            //return view('profile/profile', ['validation' => $this->validator]);
+                 $data['validation'] = $this->validator;
+                 return view('profile/profile', $data);
+        } else {
+            $name = $this->request->getPost('name');
+            $email = $this->request->getPost('email');
+            $values = [
+                'name' => $name,
+                'email' => $email,
+            ];
+            //dd($values);
+            //dd($user,$);
+            //$model=new UserModel();
+            $model->update($data['users'], $values);
+
+            return redirect()->back()->with('success', 'Profile data updated successfully');
+        }
+      
     }
     public function viewpost()
     {
