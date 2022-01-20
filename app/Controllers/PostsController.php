@@ -21,8 +21,7 @@ class PostsController extends BaseController
     }
     public function store()
     {
-        $catmodel=new CategoryModel();
-        $data['categories']=$catmodel->findAll();
+        
         $validation = $this->validate([
             'title' => 'required',
             'image' => 'uploaded[image]|max_size[image,1024]|ext_in[image,jpg,jpeg,png,gif]',
@@ -30,6 +29,7 @@ class PostsController extends BaseController
         ]);
         if (!$validation) {
             $data=array('validation'=>$this->validator);
+            //dd($this->validator->getErrors());
             return redirect()->back()->withInput($data);
             // $data['validation']=$this->validator;
             // return view('dashboard/posts/create',$data);

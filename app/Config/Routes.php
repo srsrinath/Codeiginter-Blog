@@ -33,6 +33,47 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 
 
+
+$routes->group('',['filter' => 'Admin'], function ($routes) {
+    $routes->add('dashboard', 'DashboardController::index');
+    $routes->add('users','UsersController::index'); 
+    $routes->add('users/create','UsersController::create');    
+    $routes->add('categories','CategoryController::index');
+
+});
+
+$routes->group('',['filter' => 'LoggedInFilter'], function ($routes) {
+    $routes->add('/register','AuthController::index');    
+    $routes->add('login', 'AuthController::login');
+    $routes->add('users','UsersController::index');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+// $routes->group('admin', function ($routes) {
+//     $routes->group('users', function ($routes) {
+//         $routes->add('list', 'Admin\Users::list');
+//     });
+// })
+
+
+
+
+
+
+
+
+
+
 //Home Controller routes
 $routes->get('/', 'Home::index');
 $routes->get('about','Home::about');
@@ -51,14 +92,14 @@ $routes->post('/send', 'EmailController::send');
 
 //Auth Controller routes
 
-$routes->get('/register','AuthController::index',['filter'=>'LoggedInFilter']);
+$routes->get('/register','AuthController::index');
 $routes->post('save', 'AuthController::save');
-$routes->get('login', 'AuthController::login',['filter'=>'LoggedInFilter']);
+$routes->get('login', 'AuthController::login');
 $routes->post('check', 'AuthController::check');
 $routes->get('logout', 'AuthController::logout');
 
 //Dashboard controller routes
-$routes->get('dashboard', 'DashboardController::index',['filter'=>'Admin']);
+ $routes->get('dashboard', 'DashboardController::index');
 $routes->get('dashboard/profile', 'DashboardController::profile');
 $routes->post('/store/(:num)', 'DashboardController::store/$1');
 $routes->get('dashboard/changepassword', 'DashboardController::changepassword');
