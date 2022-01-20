@@ -20,7 +20,7 @@
                     <div class="dropdown notification-list">
                         <a class="nav-link dropdown-toggle waves-effect" id="navbarDropdown"
                          data-toggle="dropdown" href="#" role="button" aria-expanded="false">
-                            <?= session()->get('type') ?></a>
+                            <?= session()->get('name') ?></a>
                         <div class="dropdown-menu dropdown-menu-right profile-dropdown">
                             <a class="dropdown-item" href="<?=base_url('/dashboard/profile')?>"><i class="mdi mdi-account-circle m-r-5"></i> Profile</a>
                             <a class="dropdown-item" href="<?=base_url('/dashboard/changepassword')?>"><i class="mdi mdi-account-circle m-r-5"></i>ChangePassword</a>

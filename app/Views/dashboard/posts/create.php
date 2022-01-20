@@ -6,6 +6,7 @@
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="site-heading">
                     <h1>Create Post</h1>
+                    <?php //print_r($validation) ?>
                     <span class="subheading">Create your posts here!</span>
                 </div>
             </div>
@@ -34,7 +35,7 @@
             <label for="formFile" class="form-label"><b>Upload a image:</b></label>
             <input class="form-control" type="file" name="image" id="formFile">
             <span class="text-danger">
-                <?= isset($validation) ? display_error($validation, 'image') : '' ?>
+            <?= isset($validation) ? display_error($validation, 'image') : '' ?>
             </span>
         </div>
         <div class="mb-3 text-center form-group">
