@@ -8,10 +8,6 @@ use App\Models\UserModel;
 
 class DashboardController extends BaseController
 {
-    public function __construct()
-    {
-        helper(['url','form']);
-    }
     public function index()
     {
         
@@ -22,7 +18,7 @@ class DashboardController extends BaseController
         $id = session()->get('loggedUser');
         $model = new UserModel();
         $data['users'] = $model->find($id);
-        
+        $data['validation']=$this->validation;       
         return view('dashboard/profile',$data);
     }
     public function store($id){
@@ -37,9 +33,11 @@ class DashboardController extends BaseController
         ];
         $validation = $this->validate($rules);
         if (!$validation) {
+            $data=array('validation'=>$this->validator);
+            return redirect()->back()->withInput($data);
             //return view('profile/profile', ['validation' => $this->validator]);
-                 $data['validation'] = $this->validator;
-                 return view('dashboard/profile', $data);
+                //  $data['validation'] = $this->validator;
+                //  return view('dashboard/profile', $data);
         } else {
             $name = $this->request->getPost('name');
             $email = $this->request->getPost('email');
@@ -56,8 +54,8 @@ class DashboardController extends BaseController
     }
     public function changepassword()
     {
-        
-        return view('dashboard/changepassword');
+        $data=array('validation'=>$this->validation);
+        return view('dashboard/changepassword',$data);
     }
 
     public function update(){
@@ -72,7 +70,9 @@ class DashboardController extends BaseController
         ];
         $validation = $this->validate($rules);
         if (!$validation) {
-            return view('dashboard/changepassword', ['validation' => $this->validator]);
+            $data=array('validation'=>$this->validator);
+            return redirect()->back()->withInput($data);
+            //return view('dashboard/changepassword', ['validation' => $this->validator]);
             //     $data['validation'] = $this->validator;
             //     return view('dashboard/users/edit', $data);
         } else {

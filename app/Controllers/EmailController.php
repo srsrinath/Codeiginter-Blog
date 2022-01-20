@@ -4,14 +4,10 @@ use App\Controllers\BaseController;
 
 class EmailController extends BaseController
 {
-    public function __construct()
-    {
-        helper(['url', 'form']);
-    }
     public function index()
     {
-        
-        return view('email/contact');
+        $data=array('validation'=>$this->validation);        
+        return view('email/contact',$data);
     }
     public function send(){
      //   helper(['form']);
@@ -23,7 +19,8 @@ class EmailController extends BaseController
             'message' => 'required',
         ]);
         if(!$validation){
-            return view('email/contact',['validation'=>$this->validator]);
+            $data=array('validation'=>$this->validator);
+            return redirect()->back()->withInput($data);
         }else{
             $email=\Config\Services::email();
 

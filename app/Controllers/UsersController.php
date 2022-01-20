@@ -5,10 +5,6 @@ use App\Libraries\Hash;
 
 class UsersController extends BaseController
 {
-    public function __construct()
-    {
-        helper(['url', 'form']);
-    }
 
     public function index()
     {
@@ -20,7 +16,8 @@ class UsersController extends BaseController
 
     public function create()
     {
-        return view('dashboard/users/create');
+        $data=array('validation'=> $this->validation);
+        return view('dashboard/users/create',$data);
     }
 
     public function store()
@@ -33,8 +30,10 @@ class UsersController extends BaseController
         ]);
         if ($this->request->getMethod() == 'post') {
             if (!$validation) {
+                $data=array('validation'=>$this->validator);
+                return redirect()->back()->withInput($data);
                 //return redirect()->back()->withInput(['validation' => $this->validator]);
-                return view('dashboard/users/create', ['validation' => $this->validator]);
+                //return view('dashboard/users/create', ['validation' => $this->validator]);
             } else {
                 $name = $this->request->getPost('name');
                 $email = $this->request->getPost('email');
@@ -59,6 +58,7 @@ class UsersController extends BaseController
     {
         $model = new UserModel();
         $data['user'] = $model->find($id);
+        $data['validation']=$this->validation;
         //dd($data);
         return view('dashboard/users/edit', $data);
     }
@@ -81,10 +81,14 @@ class UsersController extends BaseController
         $validation = $this->validate($rules);
         if ($this->request->getMethod() == 'post') {
             if (!$validation) {
+                $data=array('validation'=>$this->validator);
+                return redirect()->back()->withInput($data);
+                
+                
                 //return view('dashboard/users/edit',$data,[$data['validation'] = $this->validator]);
-                $data['validation'] = $this->validator;
-                return view('dashboard/users/edit', $data);
-                //return redirect()->to('users/edit/'.$id)->withInput(['validation' => $this->validator]);
+                // $data['validation'] = $this->validator;
+                // return view('dashboard/users/edit', $data);
+                 //return redirect()->to('users/edit/'.$id)->withInput(['validation' => $this->validator]);
                 //dd($id);
                 // print_r($id);
                 // exit;

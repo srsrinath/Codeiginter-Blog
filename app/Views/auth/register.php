@@ -16,9 +16,6 @@
         <div class="row" style="margin-top:45px;">
             <div class="col-md-4 col-md offset-4">
                 <form action="<?=base_url('/save')?>" method="post">
-                <?php if(!empty(session()->getFlashdata('fail'))):?>
-                    <div class="alert alert-danger"><?=session()->getFlashdata('fail');?></div>
-                    <?php endif;?>
                     <div class="form-group mb-3">
                         <label for="Name" class="form-label">Name:</label>
                         <input type="text" name="name" class="form-control" placeholder="Enter Your Name">
