@@ -38,12 +38,8 @@ $routes->get('/', 'Home::index');
 $routes->get('about','Home::about');
 $routes->get('profile', 'Home::profile');
 $routes->post('savedetails/(:num)', 'Home::savedetails/$1');
-$routes->get('viewpost', 'Home::viewpost');
 $routes->get('changepassword', 'Home::changepassword');
 $routes->post('updatepassword', 'Home::updatepassword');
-$routes->get('edit/(:num)', 'Home::edit/$1');
-$routes->post('update/(:num)', 'Home::update/$1');
-$routes->get('delete/(:num)', 'Home::delete/$1');
 
 
 //Email Controller routes
@@ -88,7 +84,12 @@ $routes->post('categories/delete','CategoryController::delete');
  $routes->get('posts/create','PostsController::create');
  $routes->post('posts/store','PostsController::store');
  $routes->get('posts/view/(:any)','PostsController::view/$1');
-
+//posts controller to display single post
+ $routes->get('viewpost', 'PostsController::viewpost');
+ $routes->get('edit/(:num)', 'PostsController::edit/$1');
+ $routes->post('update/(:num)', 'PostsController::update/$1');
+ $routes->get('delete/(:num)', 'PostsController::delete/$1');
+ 
 
 
 

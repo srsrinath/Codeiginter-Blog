@@ -5,14 +5,10 @@ use App\Models\UserModel;
 use App\Libraries\Hash;
 class AuthController extends BaseController
 {
-    public function __construct()
-    {
-        helper(['url', 'form']);
-    }
     public function index()
     {
-        
-        return view('auth/register');
+        $data['error']=array('validation' => $this->validation);
+        return view('auth/register',$data['error']);
     }
     public function save()
     {
@@ -24,8 +20,12 @@ class AuthController extends BaseController
         ]);
         if ($this->request->getMethod() == 'post') {
             if (!$validation) {
+                $data=array(
+                    'validation' => $this->validator
+                );
+                return redirect()->back()->withInput($data);
                 //return view('auth/register', ['validation' => $this->validator]);
-                return redirect()->back()->withInput('validation',$this->validator->getErrors());
+                //return redirect()->back()->withInput('validation',$this->validator->getErrors());
             } else {
                 $name = $this->request->getPost('name');
                 $email = $this->request->getPost('email');
@@ -47,8 +47,8 @@ class AuthController extends BaseController
     }
     public function login()
     {
-
-        return view('auth/login');
+        $data=array('validation' => $this->validation);
+        return view('auth/login',$data);
     }
 
     public  function check()
@@ -75,7 +75,10 @@ class AuthController extends BaseController
         ]);
         if ($this->request->getMethod() == 'post') {
             if (!$validation) {
-                return view('auth/login', ['validation' => $this->validator]);
+                $data=array(
+                    'validation' => $this->validator
+                );
+                return redirect()->back()->withInput($data);
             } else {
                 $email = $this->request->getPost('email');
                 $password = $this->request->getPost('password');
@@ -103,7 +106,7 @@ class AuthController extends BaseController
     public function logout()
     {
         if (session()->has('loggedUser')) {
-            session()->remove('loggedUser');
+            session()->destroy();
             return redirect()->to('/');
         }
     }
